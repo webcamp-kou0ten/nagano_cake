@@ -1,0 +1,30 @@
+<header>
+  <nav class="navbar navbar-light bg-light">
+    <div class="container">
+      <%= link_to "NaganoCake", root_path, class: "navbar-brand" %>
+      <ul class="navbar-nav ml-auto navbar">
+        <% if customer_signed_in? %>
+         <li class="nav-item"><%= link_to "カート", public_cart_items_path, class: "btn btn-light" %></li>
+         <li class="nav-item"><%= link_to "商品一覧", public_items_path, class: "btn btn-light" %></li>
+         <li class="nav-item"><%= link_to "マイページ", public_customers_path, class: "btn btn-light" %></li>
+         <li class="nav-item"><%= link_to "ログアウト", destroy_customer_session_path, class: "btn btn-light" %></li>
+        <% elsif admin_signed_in? %>
+         <li class="nav-item"><%= link_to "商品一覧", admin_items_path, class: "btn btn-light" %></li>
+         <li class="nav-item"><%= link_to "会員一覧", admin_customers_path, class: "btn btn-light" %></li>
+         <li class="nav-item"><%= link_to "注文履歴一覧", admin_orders_path, class: "btn btn-light" %></li>
+         <li class="nav-item"><%= link_to "ジャンル一覧", admin_genres_path, class: "btn btn-light" %></li>
+         <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, class: "btn btn-light" %></li>
+        <% else %>
+         <li class="nav-item"><%= link_to "About", homes_about_path, class: "btn btn-light" %></li>
+         <li class="nav-item"><%= link_to "商品一覧", public_items_path, class: "btn btn-light" %></li>
+         <li class="nav-item"><%= link_to "新規登録", new_customer_registration_path, class: "btn btn-light" %></li>
+         <li class="nav-item"><%= link_to "ログイン", new_customer_session_path, class: "btn btn-light" %></li>
+        <% end %>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="ながのケーキ" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
+      </form>
+    </div>
+  </nav>
+</header>
