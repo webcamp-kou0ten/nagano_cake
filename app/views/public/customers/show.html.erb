@@ -1,0 +1,48 @@
+<div class="container" style="margin: 2% auto;">
+  <h5 style="margin-bottom: 3%;"><strong style="background-color: #f5f5f5">マイページ</strong></h1>
+  <div class="row">
+    <div class="customer-info-links">
+      <p class="links-name"><strong>登録情報</strong></p>
+      <%= link_to '編集する', edit_public_customers_path, class: "btn btn-success" %>
+    </div>
+    <div class="customer-info-links">
+      <p class="links-name"><strong>配送先</strong></p>
+      <%= link_to '一覧を見る', public_addresses_path, class: "btn btn-primary" %>
+    </div>
+    <div class="customer-info-links">
+      <p class="links-name"><strong>注文履歴</strong></p>
+      <%= link_to '一覧を見る', public_orders_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
+
+<table border="2" class="container table">
+  <#% @customer.each do |info| %>
+  <tbody>
+    <tr>
+      <td class="customer-info">氏名</td>
+      <td>info.last_name + "  " + info.first_name</td>
+    </tr>
+    <tr>
+      <td class="customer-info">カナ</td>
+      <td>info.last_name_kana + "  " + info.first_name_kana</td>
+    </tr>
+    <tr>
+      <td class="customer-info">郵便番号</td>
+      <td>info.postal_code</td>
+    </tr>
+    <tr>
+      <td class="customer-info">住所</td>
+      <td>info.address</td>
+    </tr>
+    <tr>
+      <td class="customer-info">電話番号</td>
+      <td>info.phone_number</td>
+    </tr>
+    <tr>
+      <td class="customer-info">メールアドレス</td>
+      <td>info.email</td>
+    </tr>
+  </tbody>
+  <#% end %>
+</table>
