@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="mx-auto mt-5">
+      <h2 class="p-2 bg-light">商品新規登録</h2>
+      <%= form_with model: @item, local: true, do |f| %>
+      <table>
+        <tr>
+          <td>商品画像</td>
+          <td><%= f.attachment_field :image %></td>
+        </tr>
+        <tr>
+          <td>商品名</td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
