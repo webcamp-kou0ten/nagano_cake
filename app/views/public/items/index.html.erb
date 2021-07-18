@@ -5,12 +5,12 @@
     </div>
     <div class="col-9">
       <div class="title-text row align-text-bottom">
-        <h2>商品一覧<span class="small">(全×件)</span></h2>
+        <h2>商品一覧<span class="small">(全<%= @items.count %>件)</span></h2>
       </div>
       <div class="row overflow-wrap mt-3 mb-5">
         <% @items.each do |item| %>
           <div class="col-3 mt-4">
-            <%= attachment_image_tag item, :image, :fill, 50, 50, fallback: "aa.jpg" %>
+            <%= attachment_image_tag item, :image, :fill, 200, 200, fallback: "aa.jpg" %>
             <div class="image-text">
               <p class="title"><%= item.name %></p>
               <p><strong>¥<%= item.price %></strong></p>

@@ -13,6 +13,7 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+//= require autonumeric
 
 //= require rails-ujs
 //= require activestorage
