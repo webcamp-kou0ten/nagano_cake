@@ -3,7 +3,7 @@ class Admin::CustomersController < ApplicationController
 
   def index
     # ページャーを使用
-    @customers = Customer.page(params[:page]).reverse_order
+    @customers = Customer.page(params[:page]).per(10)
   end
 
   def show
