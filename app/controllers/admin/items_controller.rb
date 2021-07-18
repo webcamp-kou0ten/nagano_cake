@@ -35,6 +35,7 @@ class Admin::ItemsController < ApplicationController
     if item.update(item_params)
       redirect_to admin_item_path(item), notice: "You have updated item successfully."
     else
+      @item = Item.find(params[:id])
       @genres = Genre.all
       render "edit"
     end
