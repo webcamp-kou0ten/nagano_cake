@@ -16,8 +16,8 @@ Rails.application.routes.draw do
 
   namespace :public do
     resource :customers, only:[:show, :edit, :update]
-    patch 'customers' => 'customers#exit'
     get 'customers/unsubscribe' => 'customers#unsubscribe'
+    patch 'customers/unsubscribe' => 'customers#exit'
     resources :addresses, only:[:create, :index, :edit, :update, :destroy]
     resources :items, only:[:index, :show]
     resources :cart_items, only:[:update, :index, :destroy, :create]

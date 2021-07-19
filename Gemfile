@@ -69,4 +69,5 @@ gem "refile-mini_magick"
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.5'
 gem 'font-awesome-sass'
+gem 'pry-byebug'
 gem 'autonumeric-rails'

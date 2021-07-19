@@ -1,3 +1,62 @@
 // Place all the styles related to the public/customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.customer-info-links {
+  display: flex;
+  align-items: baseline;
+  margin-right: 100px;
+}
+
+.customer-info-links:nth-child(3) {
+  margin-right: 0;
+}
+
+.links-name {
+  margin-right: 20px;
+}
+
+.customer-info {
+  width: 30%;
+  background-color: #f5f5f5;
+}
+
+.customer-info-form {
+  margin-bottom: 20px;
+}
+
+.last-name-form {
+  margin-right: 50px;
+}
+
+.text-container {
+  height: 20rem;
+  width: 100%;
+  display: table;
+}
+
+.text-box {
+  text-align: center;
+  display: table-cell;
+  vertical-align: bottom;
+}
+
+.unsubscribe-text {
+  margin-top: 50px;
+}
+
+.btn-container {
+  height: 5rem;
+  width: 100%;
+  display: table;
+}
+
+.unsubscribe-box {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.unsubscribe-btn {
+  margin: 0 10px;
+}
