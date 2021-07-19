@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     resources :items, only:[:new, :create, :edit, :update, :index, :show]
     resources :genres, only:[:create, :index, :edit, :update]
     resources :orders, only:[:show, :index]
-    patch 'admin/orders/:id/production_status' => 'onders#production_status'
-    get 'admin/orders/:id/order_status' => 'onders#order_status'
+    patch 'admin/orders/:id/production_status' => 'orders#production_status'
+    get 'admin/orders/:id/order_status' => 'orders#order_status'
   end
 end
