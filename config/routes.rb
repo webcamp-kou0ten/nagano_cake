@@ -20,11 +20,11 @@ Rails.application.routes.draw do
     get 'customers/unsubscribe' => 'customers#unsubscribe'
     resources :addresses, only:[:create, :index, :edit, :update, :destroy]
     resources :items, only:[:index, :show]
-    # resources :cart_items, only:[:update, :index, :destroy, :create]
-    resource :cart_items, only: [:index]
-    post '/add_item' => 'carts#add_item'
-    post '/update_item' => 'cart_items#update'
-    delete '/delete_item' => 'cart_items#delete'
+    resources :cart_items, only:[:update, :index, :destroy, :create]
+    # resource :cart_items, only: [:index]
+    # post '/add_item' => 'carts#add_item'
+    # post '/update_item' => 'cart_items#update'
+    # delete '/delete_item' => 'cart_items#delete'
     delete 'cart_items/:id' => 'cart_items#all_destroy'
     
     resources :orders, only:[:new, :create, :show, :index]
@@ -37,7 +37,7 @@ Rails.application.routes.draw do
     resources :items, only:[:new, :create, :edit, :update, :index, :show]
     resources :genres, only:[:create, :index, :edit, :update]
     resources :orders, only:[:show, :index]
-    patch 'admin/orders/:id/production_status' => 'onders#production_status'
-    get 'admin/orders/:id/order_status' => 'onders#order_status'
+    patch 'admin/orders/:id/production_status' => 'orders#production_status'
+    get 'admin/orders/:id/order_status' => 'orders#order_status'
   end
 end
