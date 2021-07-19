@@ -17,32 +17,30 @@
 </div>
 
 <table border="2" class="container table">
-  <#% @customer.each do |info| %>
   <tbody>
     <tr>
       <td class="customer-info">氏名</td>
-      <td>info.last_name + "  " + info.first_name</td>
+      <td><%= @customer.last_name %> <%= @customer.first_name %></td>
     </tr>
     <tr>
       <td class="customer-info">カナ</td>
-      <td>info.last_name_kana + "  " + info.first_name_kana</td>
+      <td><%= @customer.last_name_kana %> <%= @customer.first_name_kana %></td>
     </tr>
     <tr>
       <td class="customer-info">郵便番号</td>
-      <td>info.postal_code</td>
+      <td><%= @customer.postal_code %></td>
     </tr>
     <tr>
       <td class="customer-info">住所</td>
-      <td>info.address</td>
+      <td><%= @customer.address %></td>
     </tr>
     <tr>
       <td class="customer-info">電話番号</td>
-      <td>info.phone_number</td>
+      <td><%= @customer.phone_number %></td>
     </tr>
     <tr>
       <td class="customer-info">メールアドレス</td>
-      <td>info.email</td>
+      <td><%= @customer.email %></td>
     </tr>
   </tbody>
-  <#% end %>
 </table>
