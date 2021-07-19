@@ -6,15 +6,17 @@
     <div class="col-9">
       <div class="main row">
         <div class="image col-4">
-          <%= attachment_image_tag @item, :image, :fill, 50, 50, fallback: "" %>
+          <%= attachment_image_tag @item, :image, :fill, 200, 200, fallback: "" %>
         </div>
-        <div class="about col-8 text-center">
+        <div class="about col-8">
           <h1><%= @item.name %></h1>
           <p><%= @item.introduction %></p>
           <div class="price mt-5">¥<%= @item.price %></div>
           <div class="go_cart row mt-5">
             <%= form_with model: @cart_items, local:true do |item| %>
-              <%= item.select :amount, [["1個", 1], ["2個", 2], ["3個", 3], ["4個", 4]], include_blank: "個数選択" %>
+              <!--(1..10).map(&:to_s)文字列化+"個"だとデータの受け渡しできない？-->
+              <%= item.select :amount,(1..10), include_blank: "個数選択" %>個
+              <!--<%#= item.select :amount, [["1個", 1], ["2個", 2], ["3個", 3], ["4個", 4]], include_blank: "個数選択" %>-->
               <%= item.submit 'カートに入れる', class: "btn btn-success" %>
             <% end %>
           </div>
