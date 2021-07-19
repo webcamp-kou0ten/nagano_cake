@@ -8,10 +8,10 @@
         <div class="image col-4">
           <%= attachment_image_tag @item, :image, :fill, 200, 200, fallback: "" %>
         </div>
-        <div class="about col-8 text-center">
-          <h1 class="text-left"><%= @item.name %></h1>
-          <p class="text-left"><%= @item.introduction %></p>
-          <div class="text-left price mt-5">¥<%= @item.price %></div>
+        <div class="about col-8">
+          <h1><%= @item.name %></h1>
+          <p><%= @item.introduction %></p>
+          <div class="price mt-5">¥<%= @item.price %></div>
           <div class="go_cart row mt-5">
             <%= form_with model: @cart_items, local:true do |item| %>
               <!--(1..10).map(&:to_s)文字列化+"個"だとデータの受け渡しできない？-->
