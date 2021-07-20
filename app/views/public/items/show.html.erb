@@ -6,17 +6,17 @@
     <div class="col-9">
       <div class="main row">
         <div class="image col-4">
-          <%= attachment_image_tag @item, :image, :fill, 50, 50, fallback: "" %>
+          <%= attachment_image_tag @item, :image, :fill, 50, 50, fallback: "大五郎丸花子.jpg" %>
         </div>
         <div class="about col-8 text-center">
           <h1><%= @item.name %></h1>
           <p><%= @item.introduction %></p>
           <div class="price mt-5">¥<%= @item.price %></div>
           <div class="go_cart row mt-5">
-            <%= form_with model: @cart_items, url: public_cart_items_path, local: true do |item| %>
-              <%= item.select :amount,(1..10), include_blank: "個数選択" %>個
-              <%= item.hidden_field :item_id, :value => @item.id %>
-              <%= item.submit 'カートに入れる', class: "btn btn-success" %>
+            <%= form_with model: @cart_items, url: public_cart_items_path, local: true do |f| %>
+              <%= f.select :amount,(1..10), include_blank: "個数選択" %>個
+              <%= f.hidden_field :item_id, :value => @item.id %>
+              <%= f.submit 'カートに入れる', class: "btn btn-success" %>
             <% end %>
           </div>
         </div>

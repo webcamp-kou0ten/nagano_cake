@@ -15,8 +15,6 @@ before_action :authenticate_customer!, except: [:index]
 
   def index
     @items = Item.where(sell_status: false).page(params[:page]).per(8)
-    @range1 = 1..10
-    @range2 = 1..10
   end
 
   private
