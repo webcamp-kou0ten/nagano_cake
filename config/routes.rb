@@ -22,8 +22,12 @@ Rails.application.routes.draw do
     patch 'customers/unsubscribe' => 'customers#exit'
     resources :addresses, only:[:create, :index, :edit, :update, :destroy]
     resources :items, only:[:index, :show]
-    resources :cart_items, only:[:update, :index, :destroy, :create]
-    delete 'cart_items/:id' => 'cart_items#all_destroy'
+    resources :cart_items, only:[:update, :index, :destroy, :create] do
+      collection do
+        delete '/' => 'cart_items#all_destroy'
+      end
+    end
+    
     resources :orders, only:[:new, :create, :show, :index]
     get 'orders/thanks' => 'orders#thanks'
     get 'orders/confirm' => 'orders#confirm'
