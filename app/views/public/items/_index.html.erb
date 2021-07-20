@@ -1,5 +1,9 @@
 <div class="title-text row align-text-bottom">
-  <h2>商品一覧<span class="small">(全<%= items.count %>件)</span></h2>
+  <% if how == "genre" %>
+    <h2><%= genre.name %>一覧<span class="small">(全<%= items.count %>件)</span></h2>
+  <% else %>
+    <h2>商品一覧<span class="small">(全<%= items.count %>件)</span></h2>
+  <% end %>
 </div>
 <div class="row overflow-wrap mt-3 mb-5">
   <% items.each do |item| %>
