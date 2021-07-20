@@ -17,6 +17,9 @@ class Customer < ApplicationRecord
     validates :postal_code
     validates :phone_number
   end
-  
+
   validates :encrypted_password, length: {minimum: 6}
+
+
+
 end

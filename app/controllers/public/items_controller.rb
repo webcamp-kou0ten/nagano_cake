@@ -2,6 +2,7 @@ class Public::ItemsController < ApplicationController
 before_action :authenticate_customer!, except: [:index]
 
   def show
+    @genres = Genre.all
     @item = Item.find(params[:id])
     @cart_items = CartItem.new
   end
@@ -15,6 +16,7 @@ before_action :authenticate_customer!, except: [:index]
 
   def index
     @items = Item.where(sell_status: false).page(params[:page]).per(8)
+    @genres = Genre.all
   end
 
   private

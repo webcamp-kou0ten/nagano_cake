@@ -13,11 +13,13 @@ Rails.application.routes.draw do
 
   root to: 'homes#top'
   get 'homes/about' => 'homes#about'
+  
+  get '/search' => 'searches#search'
 
   namespace :public do
     resource :customers, only:[:show, :edit, :update]
-    patch 'customers' => 'customers#exit'
     get 'customers/unsubscribe' => 'customers#unsubscribe'
+    patch 'customers/unsubscribe' => 'customers#exit'
     resources :addresses, only:[:create, :index, :edit, :update, :destroy]
     resources :items, only:[:index, :show]
     resources :cart_items, only:[:update, :index, :destroy, :create] do
@@ -27,8 +29,8 @@ Rails.application.routes.draw do
     end
     
     resources :orders, only:[:new, :create, :show, :index]
-    get 'onders/thanks' => 'onders#thanks'
-    get 'onders/confirm' => 'onders#confirm'
+    get 'orders/thanks' => 'orders#thanks'
+    get 'orders/confirm' => 'orders#confirm'
   end
 
   namespace :admin do
@@ -39,4 +41,5 @@ Rails.application.routes.draw do
     patch 'admin/orders/:id/production_status' => 'orders#production_status'
     get 'admin/orders/:id/order_status' => 'orders#order_status'
   end
+  
 end
