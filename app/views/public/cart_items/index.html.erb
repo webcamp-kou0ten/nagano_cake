@@ -5,7 +5,7 @@
       <p>カート内に商品はありません。</p>
       <p><%= link_to "商品一覧ページへ行く", public_items_path %></p>
     <% else %>
-      <p class = "text-right"><%= link_to "カートを空にする", public_cart_items_path, method: :delete %></p>
+      <p class ="text-right"><%= link_to "カートを空にする", public_cart_items_path, method: :delete, data: {confirm: '本当に削除しますか？'} %></p>
       <table class="table border">
         <thead class="bg-light">
           <tr>
@@ -20,9 +20,7 @@
           <% @cart_items.each do |cart_item| %>
             <tr>
               <td>
-                <div>
-                  <%= attachment_image_tag @cart_item, :image, size: "50x50", fallback: "" %><span><%= cart_item.item.name %></span>
-                </div>
+                <%= attachment_image_tag cart_item.item, :image, :fill, 50, 50, fallback: "" %><span><%= cart_item.item.name %></span>
               </td>
               <td><%= cart_item.item.price %></td>
               <td>

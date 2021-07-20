@@ -1,7 +1,7 @@
 <div class="container mt-5 mb-5">
   <div class="row">
     <div class="col-3">
-      <%= render 'genre', genres: @genres %>
+      <%= render 'public/items/genre', genres: @genres %>
     </div>
     <div class="col-9">
       <div class="main row">
@@ -12,13 +12,15 @@
           <h1><%= @item.name %></h1>
           <p><%= @item.introduction %></p>
           <div class="mt-5">¥<%= @item.price %></div>
-          <div class="row mt-5">
-            <%= form_with model: @cart_items, url: public_cart_items_path, local: true do |f| %>
-              <%= f.select :amount,(1..20), include_blank: "個数選択" %>個
-              <%= f.hidden_field :item_id, :value => @item.id %>
-              <%= f.submit 'カートに入れる', class: "btn btn-success" %>
-            <% end %>
-          </div>
+          <% if customer_signed_in? %>
+            <div class="row mt-5">
+              <%= form_with model: @cart_items, url: public_cart_items_path, local: true do |f| %>
+                <%= f.select :amount,(1..20), include_blank: "個数選択" %>個
+                <%= f.hidden_field :item_id, :value => @item.id %>
+                <%= f.submit 'カートに入れる', class: "btn btn-success" %>
+              <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
