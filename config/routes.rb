@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   root to: 'homes#top'
   get 'homes/about' => 'homes#about'
+  
+  get '/search' => 'searches#search'
 
   namespace :public do
     resource :customers, only:[:show, :edit, :update]
@@ -35,4 +37,5 @@ Rails.application.routes.draw do
     patch 'admin/orders/:id/production_status' => 'orders#production_status'
     get 'admin/orders/:id/order_status' => 'orders#order_status'
   end
+  
 end
