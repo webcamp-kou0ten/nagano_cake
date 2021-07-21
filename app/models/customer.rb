@@ -7,6 +7,7 @@ class Customer < ApplicationRecord
   has_many :cart_items
   has_many :addresses
   has_many :orders
+  accepts_nested_attributes_for :addresses, allow_destroy: true
 
   with_options presence: true do
     validates :last_name
@@ -20,6 +21,10 @@ class Customer < ApplicationRecord
 
   validates :encrypted_password, length: {minimum: 6}
 
-
+  def delivery_addresses
+    @addresses.each do |address|
+      ""
+    end
+  end
 
 end
