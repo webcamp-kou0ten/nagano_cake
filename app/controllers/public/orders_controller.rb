@@ -2,9 +2,9 @@ class Public::OrdersController < ApplicationController
 
   def new
     @order = Order.new(customer_id: current_customer.id)
-    @registered_address = @order.customer.address
+    # @order_item.amount = cart_item.amount
+
     @address = Address.new
-    # @order.addresses.build
   end
 
   def index
@@ -19,7 +19,7 @@ class Public::OrdersController < ApplicationController
     # order_item.amount = cart_item.amount
     # order_item.item_id = cart_item.item_id
     order.save
-    redirect_to public_orders_confirm_path
+    # redirect_to public_orders_confirm_path
   end
 
   def thanks
@@ -27,12 +27,13 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     if params[:order][:address_select] == "my_address"
+
     elsif params[:order][:address_select] == "new_address"
       @order = Order.new(order_params)
       @address = Address.new
       @address.name = @order.name
-      
-      
+      @address.postal_code = @order.postal_code
+      @address.address = @order.address
       @address.save
     end
   end
@@ -45,6 +46,7 @@ class Public::OrdersController < ApplicationController
 
     def order_params
       params.require(:order).permit(:name,:postal_code, :payment_method, addresses_attributes:[:postal_code, :address, :name])
+      # params.require(:order).permit(:name,:postal_code, :payment_method, addresses_attributes:[:postal_code, :address, :name])
     end
 
 end
