@@ -1,17 +1,17 @@
 <div class="container">
   <div class="row">
     <div class="mx-auto mt-5">
-      <h2>ログイン</h2>
-      <p>会員の方はこちらからログイン</p>
+      <h2><span class="bg-light">ログイン</span></h2>
+      <p><span style="background-color:#fc9">会員の方はこちらからログイン</span></p>
       <table>
       <%= form_with model: @customer, url: customer_session_path, local: true do |f| %>
         <tr>
           <td>メールアドレス</td>
-          <td><%= f.email_field :email, autofocus: true %></td>
+          <td><%= f.email_field :email, autofocus: true, size: 35 %></td>
         </tr>
         <tr>
           <td>パスワード</td>
-          <td><%= f.password_field :password %></td>
+          <td><%= f.password_field :password, size: 35 %></td>
         </tr>
         <tr>
           <td></td>
@@ -19,7 +19,7 @@
         </tr>
       <% end %>
       </table>
-      <p class="mt-5">会員登録がお済みでない方</p>
+      <p class="mt-5"><span style="background-color:#fc9">会員登録がお済みでない方</span></p>
       <p><%= link_to "こちら", new_customer_registration_path %> から新規登録を行ってください。</p>
     </div>
   </div>

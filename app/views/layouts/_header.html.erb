@@ -1,7 +1,10 @@
 <header>
   <nav class="navbar navbar-light bg-light">
     <div class="container">
-      <%= link_to "NaganoCake", root_path, class: "navbar-brand" %>
+      <%= link_to image_tag("logo.png"), root_path, class: "navbar-brand" %>
+      <% if customer_signed_in? %>
+        <div class="ml-5">ようこそ！<%= current_customer.last_name %>さん</div>
+      <% end %>
       <ul class="navbar-nav ml-auto navbar">
         <% if admin_signed_in? %>
          <li class="nav-item"><%= link_to "商品一覧", admin_items_path, class: "btn btn-light" %></li>
