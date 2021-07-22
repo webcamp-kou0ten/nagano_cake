@@ -14,7 +14,7 @@ class Public::CartItemsController < ApplicationController
       @cart_item = current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id])
       @cart_item.amount += params[:cart_item][:amount].to_i
       if @cart_item.save
-        flash[:notice] = "カートへの追加に失敗しました！！"
+        flash[:notice] = "カートへの追加に成功しました！！"
         redirect_to public_cart_items_path
       else
         redirect_to  public_item_path(params[:cart_item][:item_id])
