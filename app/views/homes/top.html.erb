@@ -1,9 +1,9 @@
 <div class="container mt-5 mb-5">
   <div class="row">
-      <div class="col-3">
+      <div class="col-md-3">
         <%= render 'public/items/genre', genres: @genres %>
       </div>
-      <div class="col-9">
+      <div class="col-md-9">
         <div class="main-visual d-flex align-items-center">
           <p class="main-visual-text">
             <font size="30px">ようこそ、ながのCAKEへ！</font><br/>
@@ -16,9 +16,9 @@
           <h2>新着商品</h2>
           <div class="row">
             <% @items.each do |item| %>
-            <div class="col-3">
+            <div class="col-md-3">
               <%= link_to public_item_path(item) do %>
-                <%= attachment_image_tag item, :image, :fill, 200, 200, fallback: "" %>
+                <%= attachment_image_tag item, :image, :fill, 200, 200, fallback: "", class: "img-fluid" %>
               <% end %>
               <p><%= link_to item.name, public_item_path(item) %></p>
               <p>¥<%= item.price %></p>
