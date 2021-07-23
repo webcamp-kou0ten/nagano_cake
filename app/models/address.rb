@@ -8,7 +8,7 @@ class Address < ApplicationRecord
   end
 
   def address_pulldown
-    customer.postal_code + + customer.address + + customer.last_name + customer.first_name
+    "〒" + self.postal_code + " " + self.address + " " + self.name
   end
 
 end

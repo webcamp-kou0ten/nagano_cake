@@ -48,6 +48,9 @@
     <% end %>
   </div>
   <div class="order_finish text-center">
+    <% if @cart_items.blank? %>
+    <% else %>
     <%= link_to "情報入力へ進む",new_public_order_path, class: "btn btn-success" %>
+    <% end %>
   </div>
 </div>

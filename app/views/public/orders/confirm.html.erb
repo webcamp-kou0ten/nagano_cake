@@ -11,27 +11,41 @@
             <th>小計</th>
           </tr>
         </thead>
+        <%= form_with model: @order, url:{controller: 'orders', action: 'create' }, method: :post, local: true do |f|%>
         <tbody>
           <% @cart_items.each do |cart_item| %>
             <tr>
-              <td>
-                <%= attachment_image_tag cart_item.item, :image, :fill, 50, 50, fallback: "" %><span><%= cart_item.item.name %></span>
-              </td>
+              <td><%= attachment_image_tag cart_item.item, :image, :fill, 50, 50, fallback: "" %><span><%= cart_item.item.name %></span></td>
               <td><%= cart_item.item.price %></td>
-              <td>
-                <%= form_with model: cart_item, url: public_cart_item_path(cart_item), method: :patch, local: true do |f| %>
-                  <%= f.select :amount, (1..20), include_blank: "個数選択" %>
-                  <%= f.submit "変更", class: "btn btn-success" %>
-                <% end %>
-              </td>
+              <td><%= cart_item.amount %></td>
               <td>小計:<%= cart_item.item.price * cart_item.amount %></td>
-              <td>
-                <%= link_to "削除する", public_cart_item_path(cart_item), method: :delete, data: {confirm: '本当に削除しますか？'}, class: "btn btn-danger" %>
-              </td>
             </tr>
           <% end %>
         </tbody>
       </table>
+      <table border="2" class="container table">
+        <tbody>
+          <tr><td class="customer-info">送料</td><td><%= @order.shipping_cost %></td></tr>
+          <tr><td class="customer-info">商品合計</td><td><%= @total %></td></tr>
+          <tr><td class="billing">請求金額</td><td><%= @total + @order.shipping_cost %></td></tr>
+        </tbody>
+      </table>
+      <div>
+        <h6>お届け先</h6>
+        <div class="post_postal_code"><%= "〒#{@order.postal_code}" %></div>
+        <div class="post_address"><%= @order.address %></div>
+        <div class="post_name"><%= @order.name %></div>
+      </div>
+      <div>
+        <h6>支払方法</h6>
+        <div><%= @order.payment_method %></div>
+      </div>
+        <%= f.hidden_field :postal_code, :value => @order.postal_code %>
+        <%= f.hidden_field :address, :value => @order.address %>
+        <%= f.hidden_field :name, :value => @order.name %>
+        <%= f.hidden_field :price, :value => @total + @order.shipping_cost %>
+        <%= f.submit "注文を確定する", class: 'btn btn-success m-2' %>
+      <% end %>
     </div>
   </div>
 </div>

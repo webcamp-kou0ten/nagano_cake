@@ -1,0 +1,41 @@
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <h5 class="p-2 bg-light">注文情報入力</h5>
+
+    <table border="2" class="table">
+      <thead>
+        <tr>
+          <th>注文日</th>
+          <th>配送先</th>
+          <th>注文商品</th>
+          <th>支払金額</th>
+          <th>ステータス</th>
+          <th>注文詳細</th>
+        </tr>
+      </thead>
+      <tbody class= "small">
+        <% @orders.each do |order| %>
+          <tr>
+            <td class="col-2 table-compact"><%= order.created_at.to_s(:datetime_jp) %></td>
+            <td class="col-4 table-compact">
+              <div><%= "〒#{order.postal_code}" %></div>
+              <div><%= order.address %></div>
+              <div><%= order.name %></div>
+            </td>
+            <td class="col-2 table-compact">
+              <% order.order_items.each do |order_item| %>
+                <div><%= "#{order_item.item.name}"%></div>
+              <% end %>
+            </td>
+            <td class="col-1 text-right table-compact"><%= "#{order.price}円" %></td>
+            <td class="col-2 table-compact"><%= order.order_status %></td>
+            <td class="table-compact">
+              <%= link_to '表示する', public_order_path(order), class: "btn btn-small btn-success" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div>
+</div>

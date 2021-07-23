@@ -13,7 +13,6 @@ Rails.application.routes.draw do
 
   root to: 'homes#top'
   get 'homes/about' => 'homes#about'
-  
   get '/search' => 'searches#search'
 
   namespace :public do
@@ -28,9 +27,10 @@ Rails.application.routes.draw do
       end
     end
     
-    resources :orders, only:[:new, :create, :show, :index]
     get 'orders/thanks' => 'orders#thanks'
-    get 'orders/confirm' => 'orders#confirm'
+    post 'orders/confirm' => 'orders#confirm'
+    resources :orders, only:[:new, :create, :show, :index]
+
   end
 
   namespace :admin do

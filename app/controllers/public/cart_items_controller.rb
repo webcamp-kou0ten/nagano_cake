@@ -14,7 +14,7 @@ class Public::CartItemsController < ApplicationController
       @cart_item = current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id])
       @cart_item.amount += params[:cart_item][:amount].to_i
       if @cart_item.save
-        flash[:notice] = "カートへの追加に成功しました！！"
+        flash[:notice] = "商品をカートに追加しました"
         redirect_to public_cart_items_path
       else
         redirect_to  public_item_path(params[:cart_item][:item_id])
@@ -23,10 +23,10 @@ class Public::CartItemsController < ApplicationController
       @cart_item = CartItem.new(cart_item_params)
       @cart_item.customer_id = current_customer.id
       if @cart_item.save
-        flash[:notice] = "カートへの追加に成功しました！！"
+        flash[:notice] = "商品をカートに追加しました"
         redirect_to public_cart_items_path
       else
-        flash[:notice] = "カートへの追加に失敗しました！！"
+        flash[:notice] = "エラーが発生しました。再度お試しください。"
         redirect_to  public_item_path(params[:cart_item][:item_id])
       end
     end

@@ -1,1 +1,73 @@
-show
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="p-2 bg-light h5">注文履歴詳細</div>
+    <div class="col-11 d-flex pl-0">
+      <div class="col-8 h6">注文情報
+      <table border="2" class="container table small">
+        <tbody>
+          <tr>
+            <td class="customer-info align-middle">注文日</td>
+            <td><%= @order.created_at.to_s(:datetime_jp) %></td>
+          </tr>
+          <tr>
+            <td class="customer-info align-middle">配送先</td>
+            <td>
+              <div><%= "〒#{@order.postal_code}" %></div>
+              <div><%= @order.address %></div>
+              <div><%= @order.name %></div>
+            </td>
+          </tr>
+          <tr>
+            <td class="customer-info align-middle">支払方法</td>
+            <td><%= @order.payment_method %></td>
+          </tr>
+          <tr>
+            <td class="customer-info align-middle">ステータス</td>
+            <td><%= @order.order_status %></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="col-5 h6">請求情報
+      <table border="2" class="container table small bold">
+        <tbody>
+          <tr>
+            <td class="customer-info">商品合計</td>
+            <td><%= @order.price - 800 %></td>
+          </tr>
+          <tr>
+            <td class="customer-info">配送料</td>
+            <td><%= @order.shipping_cost %></td>
+          </tr>
+          <tr>
+            <td class="customer-info font-weight-bold">ご請求額</td>
+            <td><%= @order.price %></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+    <div class= "col-8 h6">注文内容
+      <table border="2" class="table small bold">
+        <thead>
+          <tr>
+            <th>商品</th>
+            <th>単価(税込)</th>
+            <th>個数</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @order.order_items.each do |order_item| %>
+            <tr>
+              <td class="col-md-6"><%= order_item.item.name %></td>
+              <td class="col-md-2"><%= order_item.item.price %></td>
+              <td class="col-md-2"><%= order_item.amount %></td>
+              <td><%= order_item.amount * order_item.item.price %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
