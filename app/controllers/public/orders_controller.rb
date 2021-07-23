@@ -13,19 +13,18 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
-    @order.customer_id = current_customer.id
-    @order.save
-    @cart_items = current_customer.cart_items.all
-      @cart_items.each do |cart_item|
-        @order_items = @order.order_items.new
-        @order_items.item_id = cart_item.item.id
-        @order_items.total_price = cart_item.item.price
-        @order_items.amount = cart_item.amount
-        @order_items.save
+    order = Order.new(order_params)
+    order.customer_id = current_customer.id
+    order.save
+    cart_items = current_customer.cart_items.all
+      cart_items.each do |cart_item|
+        order_items = order.order_items.new
+        order_items.item_id = cart_item.item.id
+        order_items.total_price = cart_item.item.price
+        order_items.amount = cart_item.amount
+        order_items.save
       end
-    customer = current_customer
-    customer.cart_items.destroy_all
+    current_customer.cart_items.destroy_all
     redirect_to public_orders_thanks_path
   end
 

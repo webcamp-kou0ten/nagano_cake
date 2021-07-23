@@ -11,4 +11,10 @@ class Order < ApplicationRecord
     validates :shipping_cost
     validates :price
   end
+
+  # 未使用
+  def price_add_tax
+    self.order_items.item.price*1.1
+  end
+
 end

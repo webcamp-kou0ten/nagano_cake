@@ -3,7 +3,7 @@
     <h5 class="p-2 bg-light">注文情報入力</h5>
     <div class="col-11">
       <%= form_with model:@order, url: {controller: 'orders', action: 'confirm'},method: :post ,local:true do |f| %>
-      <div>支払方法</div>
+      <div>お支払方法</div>
         <div class="form-group col-10">
           <div>
             <%= f.radio_button :address_option, 0, checked: true %>
@@ -20,7 +20,7 @@
           </div>
           <div>
             <%= f.radio_button :address_option, 2 %>
-            <%= f.label :address, "新規住所" %>
+            <%= f.label :address, "新しいお届け先（新規登録）" %>
               <div class="row address-info-form">
                 <p class="col-3">郵便番号(ハイフンなし)</p>
                 <%= f.text_field :postal_code, class:"col-2" %>
