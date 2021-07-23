@@ -7,7 +7,7 @@ class Customer < ApplicationRecord
   has_many :cart_items
   has_many :addresses
   has_many :orders
-
+  
   with_options presence: true do
     validates :last_name
     validates :first_name
@@ -19,7 +19,6 @@ class Customer < ApplicationRecord
   end
 
   validates :encrypted_password, length: {minimum: 6}
-
 
 
 end
