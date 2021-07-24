@@ -2,7 +2,7 @@
   <td>
     <%= attachment_image_tag cart_item.item, :image, :fill, 50, 50, fallback: "" %><span><%= cart_item.item.name %></span>
   </td>
-  <td><%= cart_item.item.price %></td>
+  <td>¥<%= cart_item.item.price %></td>
   <td id="amount">
     <%= form_with model: cart_item, url: public_cart_item_path(cart_item), method: :patch, remote: true do |f| %>
       <%= f.select :amount, (1..20), include_blank: "個数選択" %>
