@@ -29,7 +29,7 @@
         <div class="col-4"></div>
         <div class="pull-right col-4 border mt-4 row align-items-center">
           <div class="total_price col-6 border-right">合計金額</div>
-          <div class="total_price col-6"><%= @total %></div>
+          <div class="total_price col-6">¥<%= @total.round %></div>
         </div>
       </div>
     <% end %>
