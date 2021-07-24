@@ -1,0 +1,47 @@
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <h5 class="p-2 bg-light">注文情報入力</h5>
+    <div class="col-11">
+      <%= form_with model:@order, url: public_orders_confirm_path, method: :post ,local:true do |f| %>
+      <div>お支払方法</div>
+        <div class="form-group col-10">
+          <div>
+            <%= f.radio_button :address_option, 0, checked: true %>
+            <%= f.label :address, "ご自身の住所" %>
+            <div class="col-10"><%= "〒#{@order.customer.postal_code} #{@order.customer.address}" %></div>
+            <div class="col-10"><%= "#{@order.customer.last_name}#{@order.customer.first_name}"%></div>
+          </div>
+          <div>
+            <%= f.radio_button :address_option, 1 %>
+            <%= f.label :address, "登録済住所から選択" %>
+            <div class="col-10">
+              <%= f.collection_select(:address_id, current_customer.addresses, :id, :address_pulldown) %>
+            </div>
+          </div>
+          <div>
+            <%= f.radio_button :address_option, 2 %>
+            <%= f.label :address, "新しいお届け先（新規登録）" %>
+              <div class="row address-info-form">
+                <p class="col-3">郵便番号(ハイフンなし)</p>
+                <%= f.text_field :postal_code, class:"col-2" %>
+              </div>
+              <div class="row address-info-form">
+                <p class="col-3">住所</p>
+                <%= f.text_field :address, class:"col-4" %>
+              </div>
+              <div class="row address-info-form">
+                <p class="col-3">宛名</p>
+                <%= f.text_field :name, class:"col-2" %>
+              </div>
+          </div>
+        </div>
+      <div>お届け先</div>
+        <div class="form-group col-10">
+          <div><%= f.radio_button :payment_method, "クレジットカード" %><%= f.label :payment_method, "クレジットカード", value: "クレジットカード" %></div>
+          <div><%= f.radio_button :payment_method, "銀行振込" %><%= f.label :payment_method, "銀行振込", value: "銀行振込" %></div>
+        </div>
+      <%= f.submit "確認画面へ進む", class: 'btn btn-success m-2' %>
+      <% end %>
+    </div>
+  </div>
+</div>

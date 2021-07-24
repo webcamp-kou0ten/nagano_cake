@@ -7,4 +7,8 @@ class Address < ApplicationRecord
     validates :postal_code
   end
 
+  def address_pulldown
+    "〒" + self.postal_code + " " + self.address + " " + self.name
+  end
+
 end
