@@ -6,10 +6,14 @@ class Public::AddressesController < ApplicationController
   end
 
   def create
-    address = Address.new(address_params)
+     address = Address.new(address_params)
     address.customer_id = current_customer.id
-    address.save
-    redirect_to public_addresses_path
+    if address.save
+      redirect_to public_addresses_path
+    else
+      flash[:notice] = "郵便番号、住所を再度ご確認ください。"
+      redirect_to request.referer
+    end
   end
 
   def edit
@@ -18,8 +22,12 @@ class Public::AddressesController < ApplicationController
 
   def update
     address = Address.find(params[:id])
-    address.update(address_params)
-    redirect_to public_addresses_path
+    if address.update(address_params)
+      redirect_to public_addresses_path
+    else
+      flash[:notice] = "郵便番号、住所を再度ご確認ください。"
+      redirect_to request.referer
+    end
   end
 
   def destroy
