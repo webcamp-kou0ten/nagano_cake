@@ -68,5 +68,5 @@ $next.fadeIn($fade_speed).addClass("active");
 });
 
 $(function(){
-  $('header').slideDown();
+  $('header').slideDown('slow');
 });
