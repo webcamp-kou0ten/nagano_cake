@@ -21,6 +21,7 @@
 //= require_tree .
 /*global $*/
 
+// トップページのお知らせ欄
 var slider;
 var sliderFlag = false;
 var breakpoint = 768;//768px以下の場合
@@ -46,4 +47,22 @@ function sliderSet() {
 
 $(window).on('load resize', function() {
         sliderSet();
+});
+
+// トップページのクロスフェード
+$(function(){
+// 設定
+var $width =640; // 横幅
+var $height =300; // 高さ
+var $interval = 3000; // 切り替わりの間隔（ミリ秒）
+var $fade_speed = 1000; // フェード処理の早さ（ミリ秒）
+$("#main-visual ul li").css({"position":"relative","overflow":"hidden","width":$width,"height":$height});
+$("#main-visual ul li").hide().css({"position":"absolute","top":0,"left":0});
+$("#main-visual ul li:first").addClass("active").show();
+setInterval(function(){
+var $active = $("#main-visuale ul li.active");
+var $next = $active.next("li").length?$active.next("li"):$("#main-visual ul li:first");
+$active.fadeOut($fade_speed).removeClass("active");
+$next.fadeIn($fade_speed).addClass("active");
+},$interval);
 });
