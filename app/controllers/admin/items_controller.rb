@@ -1,6 +1,6 @@
 class Admin::ItemsController < ApplicationController
-# before_action :authenticate_admin!
-
+before_action :authenticate_admin!
+  
   def new
     @item = Item.new
     @genres = Genre.all
@@ -9,8 +9,7 @@ class Admin::ItemsController < ApplicationController
   def create
     item = Item.new(item_params)
     if item.save
-      flash[:notice] = "新しい商品を登録しました"
-      redirect_to admin_items_path
+      redirect_to admin_item_path(item), notice: "新しい商品を登録しました"
     else
       @item = item
       @genres = Genre.all
