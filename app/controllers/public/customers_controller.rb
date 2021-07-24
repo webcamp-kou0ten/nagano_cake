@@ -10,9 +10,13 @@ class Public::CustomersController < ApplicationController
   end
 
   def update
-    @customer = Customer.find(current_customer.id)
-    @customer.update(customer_params)
-    redirect_to public_customers_path(current_customer)
+    customer = Customer.find(current_customer.id)
+    if customer.update(customer_params)
+      redirect_to public_customers_path(current_customer)
+    else
+      flash[:notice] = "入力内容を再度ご確認ください。"
+      redirect_to request.referer
+    end
   end
 
   def unsubscribe

@@ -8,10 +8,14 @@ before_action :authenticate_customer!, except: [:index, :show]
   end
 
   def create
-    @item = Item.find(parmas[:id])
-    @cart_item = @item.customer(item_id: item_id)
-    @cart_item.save
-    redirect_to cart_items
+    item = Item.find(parmas[:id])
+    cart_item = item.customer(item_id: item_id)
+    if cart_item.save
+      redirect_to cart_items
+    else
+      flash[:notice] = "カートの追加に失敗しました。再度お試しください。"
+      redirect_to request.referer
+    end
   end
 
   def index
@@ -20,7 +24,7 @@ before_action :authenticate_customer!, except: [:index, :show]
   end
 
   private
-  
+
   def items_params
     params.require(:item).permit(:image, :name, :introduction, :price, :sell_status)
   end

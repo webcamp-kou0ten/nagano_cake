@@ -14,12 +14,58 @@
  *= require_self
  */
  @import "bootstrap";
- 
+
  .navbar{
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
   }
-  
+
   body{
     font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", seri
   }
+
+  /*ニュース1行の周りの余白*/
+.slider a{
+  display: block;
+  background:#fff;
+  opacity: 0.8;
+  padding:5px;
+  width: 100%;
+}
+
+/*== 影がついて浮き上がる */
+
+/*ボタンの形状*/
+.float1{
+  // border: 1px solid #ccc;
+  color: #333;
+  margin-bottom: 10px;
+  display: inline-block;
+  text-decoration: none;
+  outline: none;
+  /*アニメーションの指定*/
+  transition: all .3s;
+}
+
+/*hoverをしたらボックスに影がつく*/
+.float1:hover {
+  box-shadow: 0 8px 11px rgba(0, 0, 0, 0.3);
+  border-color: transparent;
+}
+
+#main-visual {
+  width: 1280px;
+  height: 600px;
+  margin:0 auto;
+  position:relative;
+}
+
+#main-visual img {
+  position:absolute;
+  left:0;
+  top:0;
+}
+
+header {
+  display: none;
+}
