@@ -21,7 +21,7 @@ class Admin::OrdersController < ApplicationController
     order_item.update(production_status: params[:order_item][:production_status].to_i)
     if order_item.production_status == "製作中"
       order.update( order_status: 2 )
-    elsif
+    else
       count = 0
       order_items.each do |order_item|
         if order_item.production_status == "製作完了"
