@@ -1,5 +1,5 @@
 <div class="container" style="margin: 2% auto;">
-  <h5 style="margin-bottom: 3%;"><strong style="background-color: #f5f5f5">マイページ</strong></h1>
+  <h5 style="margin-bottom: 3%;"><strong style="background-color: #f5f5f5">マイページ</strong></h5>
   <div class="row">
     <div class="customer-info-links">
       <%= link_to edit_public_customers_path, class: "btn mr-3 btn-mod btn-border btn-medium btn-round faa-parent animated-hover" do %>
@@ -19,31 +19,33 @@
   </div>
 </div>
 
-<table border="2" class="container table">
-  <tbody>
-    <tr>
-      <td class="customer-info">氏名</td>
-      <td><%= @customer.last_name %> <%= @customer.first_name %></td>
-    </tr>
-    <tr>
-      <td class="customer-info">カナ</td>
-      <td><%= @customer.last_name_kana %> <%= @customer.first_name_kana %></td>
-    </tr>
-    <tr>
-      <td class="customer-info">郵便番号</td>
-      <td><%= @customer.postal_code %></td>
-    </tr>
-    <tr>
-      <td class="customer-info">住所</td>
-      <td><%= @customer.address %></td>
-    </tr>
-    <tr>
-      <td class="customer-info">電話番号</td>
-      <td><%= @customer.phone_number %></td>
-    </tr>
-    <tr>
-      <td class="customer-info">メールアドレス</td>
-      <td><%= @customer.email %></td>
-    </tr>
-  </tbody>
-</table>
+<div class="container">
+  <table border="2" class="table" style="width: 70%;">
+    <tbody>
+      <tr>
+        <td class="customer-info col-md-3">氏名</td>
+        <td><%= @customer.last_name %> <%= @customer.first_name %></td>
+      </tr>
+      <tr>
+        <td class="customer-info col-md-3">カナ</td>
+        <td><%= @customer.last_name_kana %> <%= @customer.first_name_kana %></td>
+      </tr>
+      <tr>
+        <td class="customer-info col-md-3">郵便番号</td>
+        <td><%= @customer.postal_code %></td>
+      </tr>
+      <tr>
+        <td class="customer-info col-md-3">住所</td>
+        <td><%= @customer.address %></td>
+      </tr>
+      <tr>
+        <td class="customer-info col-md-3">電話番号</td>
+        <td><%= @customer.phone_number %></td>
+      </tr>
+      <tr>
+        <td class="customer-info col-md-3">メールアドレス</td>
+        <td><%= @customer.email %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

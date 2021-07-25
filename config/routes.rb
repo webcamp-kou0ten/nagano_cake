@@ -26,7 +26,7 @@ Rails.application.routes.draw do
         delete '/' => 'cart_items#all_destroy'
       end
     end
-    
+
     get 'orders/thanks' => 'orders#thanks'
     post 'orders/confirm' => 'orders#confirm'
     resources :orders, only:[:new, :create, :show, :index]
@@ -39,7 +39,7 @@ Rails.application.routes.draw do
     resources :genres, only:[:create, :index, :edit, :update]
     resources :orders, only:[:show, :index]
     patch 'admin/orders/:id/production_status' => 'orders#production_status'
-    get 'admin/orders/:id/order_status' => 'orders#order_status'
+    patch 'admin/orders/:id/order_status' => 'orders#order_status'
   end
-  
+
 end
