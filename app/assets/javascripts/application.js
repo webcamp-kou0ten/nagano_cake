@@ -17,11 +17,13 @@
 
 //= require rails-ujs
 //= require activestorage
-
+//= require turbolinks
 //= require_tree .
 /*global $*/
 
 // トップページのお知らせ欄
+
+$(document).on('turbolinks:load', function() {
 var slider;
 var sliderFlag = false;
 var breakpoint = 768;//768px以下の場合
@@ -69,4 +71,5 @@ $next.fadeIn($fade_speed).addClass("active");
 
 $(function(){
   $('header').slideDown('slow');
+});
 });
