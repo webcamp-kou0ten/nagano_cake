@@ -59,7 +59,9 @@
         <%= f.hidden_field :address, :value => @order.address %>
         <%= f.hidden_field :name, :value => @order.name %>
         <%= f.hidden_field :price, :value => @total + @order.shipping_cost %>
-        <%= f.submit "注文を確定する", class: 'btn btn-success m-2' %>
+        <%= button_tag :type => "submit", :class =>"btn btn-mod btn-border btn-medium btn-round faa-parent animated-hover mb-1" do %>
+          <i class="fa fa-arrow-right fa-fw faa-horizontal fa-2x" aria-hidden="true"></i>Thanks!
+        <% end %>
       <% end %>
     </div>
   </div>

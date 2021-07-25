@@ -40,7 +40,9 @@
           <div><%= f.radio_button :payment_method, "クレジットカード" %><%= f.label :payment_method, "クレジットカード", value: "クレジットカード" %></div>
           <div><%= f.radio_button :payment_method, "銀行振込" %><%= f.label :payment_method, "銀行振込", value: "銀行振込" %></div>
         </div>
-      <%= f.submit "確認画面へ進む", class: 'btn btn-success m-2' %>
+      <%= button_tag :type => "submit", :class =>"btn btn-mod btn-border btn-medium btn-round faa-parent animated-hover mb-1" do %>
+          <i class="fa fa-arrow-right fa-fw faa-horizontal fa-2x" aria-hidden="true"></i>To Confirm
+        <% end %>
       <% end %>
     </div>
   </div>

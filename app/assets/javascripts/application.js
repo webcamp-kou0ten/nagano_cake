@@ -67,6 +67,7 @@ $next.fadeIn($fade_speed).addClass("active");
 },$interval);
 });
 
+
 $(function(){
   $('header').slideDown('slow');
 });

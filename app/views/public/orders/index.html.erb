@@ -29,11 +29,14 @@
             <td class="col-1 text-right table-compact"><%= "#{order.price}円" %></td>
             <td class="col-2 table-compact"><%= order.order_status %></td>
             <td class="table-compact">
-              <%= link_to '表示する', public_order_path(order), class: "btn btn-small btn-success" %>
+              <%= link_to public_order_path(order), class: "btn btn-mod btn-border btn-medium btn-round faa-parent animated-hover mb-1" do %>
+                <i class="fas fa-info-circle fa-2x"></i>Show
+              <% end %>
             </td>
           </tr>
         <% end %>
       </tbody>
     </table>
+    <%= paginate @orders %>
   </div>
 </div>
