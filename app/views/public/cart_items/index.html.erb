@@ -5,7 +5,11 @@
       <p>カート内に商品はありません。</p>
       <p><%= link_to "商品一覧ページへ行く", public_items_path %></p>
     <% else %>
-      <p class ="text-right"><%= link_to "カートを空にする", public_cart_items_path, method: :delete, data: {confirm: '本当に削除しますか？'} %></p>
+      <p class ="text-right">
+        <%= link_to public_cart_items_path, method: :delete, data: {confirm: '本当に削除しますか？'}, class: "text-dark" do %>
+          <i id ="item-delete" class="fas fa-shopping-cart fa-lg"></i>All Delete
+        <% end %>
+      </p>
       <table class="table border">
         <thead class="bg-light">
           <tr>
@@ -25,7 +29,11 @@
         </tbody>
       </table>
       <div class="check row">
-        <div class="add_order mt-4 col-4 text-center"><%= link_to "買い物を続ける", root_path, class: "btn btn-primary", 'data-turbolinks': false %></div>
+        <div class="add_order mt-4 col-4 text-center">
+          <%= link_to root_path, class: "btn btn-mod btn-border btn-medium btn-round faa-parent animated-hover" do  %>
+            <i class="fas fa-undo-alt fa-2x fa-fw faa-horizontal" aria-hidden="true"></i>Return Shopping
+          <% end %>
+        </div>
         <div class="col-4"></div>
         <div class="pull-right col-4 border mt-4 row align-items-center">
           <div class="total_price col-6 border-right">合計金額</div>
@@ -36,7 +44,9 @@
   </div>
   <div class="order_finish text-center">
     <% unless @cart_items.blank? %>
-      <%= link_to "情報入力へ進む",new_public_order_path, class: "btn btn-success" %>
+      <%= link_to new_public_order_path, class: "btn btn-mod btn-border btn-medium btn-round faa-parent animated-hover" do %>
+        <i class="fa fa-arrow-right fa-fw faa-horizontal fa-3x" aria-hidden="true"></i>Delivery
+      <% end %>
     <% end %>
   </div>
 </div>

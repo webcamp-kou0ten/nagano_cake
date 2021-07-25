@@ -16,8 +16,12 @@
           <td class="col-md-4"><%= address.address %></td>
           <td class="col-md-2"><%= address.name %></td>
           <td style="display: flex; justify-content: space-around;">
-            <%= link_to '編集する', edit_public_address_path(address.id), class: "btn btn-success" %>
-            <%= link_to '削除する', public_address_path(address.id), method: :delete, class: "btn btn-danger" %>
+            <%= link_to  edit_public_address_path(address.id), class: "btn btn-mod btn-border btn-medium btn-round faa-parent animated-hover mb-1" do %>
+              <i class="fas fa-edit fa-fw faa-horizontal fa-2x"></i> Edit
+            <% end %>
+            <%= link_to public_address_path(address.id), method: :delete, class: "btn" do %>
+            <i class="fas fa-minus-circle fa-2x"></i> Address Delete
+            <% end %>
           </td>
         </tr>
       <% end %>
@@ -41,7 +45,9 @@
     </div>
     <div class="row" style="margin-top: 50px;">
       <div class="col-md-8"></div>
-      <%= f.submit '新規登録', class:"btn btn-success col-md-4" %>
+      <%= button_tag :type => "submit", :class =>"btn btn-mod btn-border btn-medium btn-round faa-parent animated-hover mb-1" do %>
+        <i class="fa fa-save fa-fw faa-horizontal fa-3x" aria-hidden="true"></i>Save
+      <% end %>
     </div>
   <% end %>
 </div>

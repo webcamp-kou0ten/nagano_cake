@@ -1,14 +1,14 @@
 <div id="main-visual" class="d-flex align-items-center" >
   <ul>
-    <li><%= image_tag "img/donut.jpg", class: "feed-images" %></li>
-    <li><%= image_tag "img/cake.jpg"  %></li>
-    <li><%= image_tag "img/cupcakes1.jpg" %></li>
+    <li><%= image_tag "img/donut.jpg", class: "feed-images mx-auto w-100" %></li>
+    <li><%= image_tag "img/cake.jpg", class: "mx-auto w-100" %></li>
+    <li><%= image_tag "img/cupcakes1.jpg", class: "mx-auto w-100" %></li>
   </ul>
 </div>
-<ul class="slider p-0">
-  <li><a href="#" class="opacity-2" data-turbolinks='false'>【夏ギフト】あの人にも。長野の夏、届けます。</a></li>
-  <li><a href="#" data-turbolinks='false'>【7/11(木)販売】「山根フルーツ農園」とのスペシャルコラボ商品販売開始。</a></li>
-  <li><a href="#" data-turbolinks='false'>【大人気商品】バターサンド詰め合わせ。オンライン限定商品も。</a></li>
+<ul class="slider mx-auto w-100">
+  <li><a href="#" class="opacity-2 text-dark font-weight-bold" data-turbolinks='false'>【夏ギフト】あの人にも。長野の夏、届けます。</a></li>
+  <li><a href="#" class="text-dark font-weight-bold" data-turbolinks='false'>【7/11(木)販売】「山根フルーツ農園」とのスペシャルコラボ商品販売開始。</a></li>
+  <li><a href="#" class="text-dark font-weight-bold" data-turbolinks='false'>【大人気商品】バターサンド詰め合わせ。オンライン限定商品も。</a></li>
 </ul>
 <div class="container mt-5 mb-5">
   <div class="row">
@@ -24,13 +24,13 @@
               <%= link_to public_item_path(item) do %>
                 <%= attachment_image_tag item, :image, :fill, 200, 200, fallback: "", class: "img-fluid float1" %>
               <% end %>
-              <p><%= link_to item.name, public_item_path(item) %></p>
+              <p><%= link_to item.name, public_item_path(item), class: "text-dark" %></p>
               <p>¥<%= item.price %></p>
             </div>
             <% end %>
           </div>
         </div>
-      <p class="text-right"><%= link_to "全ての商品を見る>", public_items_path %></p>
+      <p class="text-right"><%= link_to ">>全ての商品を見る", public_items_path, class: "text-dark" %></p>
     </div>
   </div>
 </div>

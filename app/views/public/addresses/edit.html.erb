@@ -15,7 +15,9 @@
       </div>
       <div class="row" style="margin-top: 50px;">
         <div class="col-md-8"></div>
-        <%= f.submit '内容を保存', class:"btn btn-success col-md-4" %>
+        <%= button_tag :type => "submit", :class =>"btn btn-mod btn-border btn-medium btn-round faa-parent animated-hover mb-1" do %>
+          <i class="fa fa-save fa-fw faa-horizontal fa-2x" aria-hidden="true"></i>Edit Save
+        <% end %>
       </div>
     <% end %>
 </div>

@@ -17,7 +17,9 @@
               <%= form_with model: @cart_items, url: public_cart_items_path, local: true do |f| %>
                 <%= f.select :amount,(1..20), include_blank: "個数選択" %>個
                 <%= f.hidden_field :item_id, :value => @item.id %>
-                <%= f.submit 'カートに入れる', class: "btn btn-success" %>
+                <%= button_tag :type => "submit", :class =>"btn btn-mod btn-border btn-medium btn-round faa-parent animated-hover mb-1" do %>
+                  <i class="fa fa-arrow-right fa-fw faa-horizontal fa-2x" aria-hidden="true"></i>Cart
+                <% end %>
               <% end %>
             </div>
           <% end %>

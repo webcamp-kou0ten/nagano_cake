@@ -29,9 +29,13 @@
       </div>
       <div class="row">
         <div class="col-md-3"></div>
-        <%= f.submit '編集内容を保存', class:"btn btn-success col-md-4" %>
+        <%= button_tag :type => "submit", :class =>"btn btn-mod btn-border btn-medium btn-round faa-parent animated-hover mb-1" do %>
+          <i class="fa fa-save fa-fw faa-horizontal fa-2x" aria-hidden="true"></i>Edit Save
+        <% end %>
         <div class="col-md-2"></div>
-        <%= link_to '退会する', public_customers_unsubscribe_path, class: "btn btn-danger col-md-2" %>
+        <%= link_to public_customers_unsubscribe_path, class: "btn mb-1" do %>
+          <i class="fas fa-sign-out-alt fa-2x"></i>Cancel Membership
+        <% end %>
       </div>
     <% end %>
 </div>

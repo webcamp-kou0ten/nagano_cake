@@ -2,16 +2,19 @@
   <h5 style="margin-bottom: 3%;"><strong style="background-color: #f5f5f5">マイページ</strong></h1>
   <div class="row">
     <div class="customer-info-links">
-      <p class="links-name"><strong>登録情報</strong></p>
-      <%= link_to '編集する', edit_public_customers_path, class: "btn btn-success" %>
+      <%= link_to edit_public_customers_path, class: "btn mr-3 btn-mod btn-border btn-medium btn-round faa-parent animated-hover" do %>
+        <i class="fas fa-user-edit fa-fw faa-horizontal fa-2x"></i> Profile Edit
+      <% end %>
     </div>
     <div class="customer-info-links">
-      <p class="links-name"><strong>配送先</strong></p>
-      <%= link_to '一覧を見る', public_addresses_path, class: "btn btn-primary" %>
+      <%= link_to public_addresses_path, class: "btn mr-3 btn-mod btn-border btn-medium btn-round faa-parent animated-hover" do %>
+        <i class="fas fa-truck fa-fw faa-horizontal fa-2x"></i> Address
+      <% end %>
     </div>
     <div class="customer-info-links">
-      <p class="links-name"><strong>注文履歴</strong></p>
-      <%= link_to '一覧を見る', public_orders_path, class: "btn btn-primary" %>
+      <%= link_to public_orders_path, class: "btn btn-mod btn-border btn-medium btn-round faa-parent animated-hover" do %>
+        <i class="fas fa-history fa-fw faa-horizontal fa-2x"></i> History
+      <% end %>
     </div>
   </div>
 </div>

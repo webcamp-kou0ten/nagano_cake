@@ -27,7 +27,7 @@ $(document).on('turbolinks:load', function() {
   var slider;
   var sliderFlag = false;
   var breakpoint = 768;//768px以下の場合
-  
+
   function sliderSet() {
           var windowWidth = window.innerWidth;
           if (windowWidth >= breakpoint && !sliderFlag) {//768px以上は1行でスライダー表示
@@ -46,11 +46,11 @@ $(document).on('turbolinks:load', function() {
               sliderFlag = false;
           }
       }
-  
+
   $(window).on('load resize', function() {
           sliderSet();
   });
-  
+
   // トップページのクロスフェード
   $(function(){
   // 設定
@@ -68,7 +68,7 @@ $(document).on('turbolinks:load', function() {
   $next.fadeIn($fade_speed).addClass("active");
   },$interval);
   });
-  
+
   $(function(){
     $('header').slideDown('slow');
   });
