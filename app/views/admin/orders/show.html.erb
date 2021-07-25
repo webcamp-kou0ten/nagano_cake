@@ -8,7 +8,7 @@
       </tr>
       <tr>
         <td>注文日</td>
-        <td><%= l @order.created_at %></td>
+        <td><%= @order.created_at.strftime('%Y/%m/%d %H:%M') %></td>
       </tr>
       <tr>
         <td>配送先</td>
@@ -47,7 +47,7 @@
             <td class="col-md-3"><%= items.name %></td>
             <td class="col-md-2"><%= items.price %></td>
             <td class="col-md-1"><%= order_items.amount %></td>
-            <td class="col-md-2"><%= items.price * order_items.amount %></td>
+            <td class="col-md-2"><%= (items.price * order_items.amount).round(0) %></td>
             <%= form_with model: order_items, url: {controller: 'orders', action: 'production_status'}, method: :patch, local:true do |f| %>
               <td class="col-md-3"><%= f.select :production_status, [["着手不可", 0], ["製作待ち", 1], ["製作中", 2], ["制作完了", 3]], selected: OrderItem.production_statuses[:"#{order_items.production_status}"] %></td>
               <%= f.hidden_field :id, :value => order_items.id %>
@@ -62,7 +62,7 @@
       <tbody>
         <tr>
           <td class="customer-info"><small>商品合計</small></td>
-          <td><%= @total %></td>
+          <td><%= @total.round(0) %></td>
         </tr>
         <tr>
           <td class="customer-info">送料</td>
@@ -70,7 +70,7 @@
         </tr>
         <tr>
           <td class="customer-info"><small><small>請求金額合計</small></small></td>
-          <td><%= @total + @order.shipping_cost %></td>
+          <td><%= (@total + @order.shipping_cost).round(0) %></td>
         </tr>
       </tbody>
     </table>

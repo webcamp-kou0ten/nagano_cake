@@ -12,7 +12,7 @@
           <th>注文詳細</th>
         </tr>
       </thead>
-      <tbody class= "small">
+      <tbody>
         <% @orders.each do |order| %>
           <tr>
             <td class="col-2 table-compact"><%= order.created_at.to_s(:datetime_jp) %></td>

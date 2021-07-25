@@ -12,7 +12,7 @@
     <tbody>
       <% @orders.each do |order| %>
         <tr>
-          <td class="col-md-3"><%= link_to (l order.created_at), admin_order_path(order.id) %></td>
+          <td class="col-md-3"><%= link_to order.created_at.strftime('%Y/%m/%d %H:%M'), admin_order_path(order.id) %></td>
           <td class="col-md-3"><%= order.name %></td>
           <td class="col-md-3"><%= order.order_items.pluck(:amount).sum %></td>
           <td class="col-md-3"><%= order.order_status %></td>
