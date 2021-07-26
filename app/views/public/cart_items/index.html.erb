@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="col-11 mx-auto mt-5 mb-5">
+    <h1>ショッピングカート</h1>
+    <% if @cart_items.blank? %>
+      <p>カート内に商品はありません。</p>
+      <p><%= link_to "商品一覧ページへ行く", public_items_path %></p>
+    <% else %>
+      <p class ="text-right">
+        <%= link_to public_cart_items_path, method: :delete, data: {confirm: '本当に削除しますか？'}, class: "text-dark" do %>
+          <i id ="item-delete" class="fas fa-shopping-cart fa-lg"></i>All Delete
+        <% end %>
+      </p>
+      <table class="table border">
+        <thead class="bg-light">
+          <tr>
+            <th>商品名</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @cart_items.each do |cart_item| %>
+            <tr>
+              <%= render partial: 'items', locals: {cart_item: cart_item} %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="check row">
+        <div class="add_order mt-4 col-4 text-center">
+          <%= link_to public_items_path, class: "btn btn-mod btn-border btn-medium btn-round faa-parent animated-hover" do  %>
+            <i class="fas fa-undo-alt fa-2x fa-fw faa-horizontal" aria-hidden="true"></i>Return Shopping
+          <% end %>
+        </div>
+        <div class="col-4"></div>
+        <div class="pull-right col-4 border mt-4 row align-items-center">
+          <div class="total_price col-6 border-right">合計金額</div>
+          <div class="total_price col-6">¥<%= @total.round %></div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="order_finish text-center">
+    <% unless @cart_items.blank? %>
+      <%= link_to new_public_order_path, class: "btn btn-mod btn-border btn-medium btn-round faa-parent animated-hover" do %>
+        <i class="fa fa-arrow-right fa-fw faa-horizontal fa-3x" aria-hidden="true"></i>Delivery
+      <% end %>
+    <% end %>
+  </div>
+</div>

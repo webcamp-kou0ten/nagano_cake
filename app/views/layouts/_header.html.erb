@@ -1,0 +1,38 @@
+<header>
+  <nav class="navbar navbar-light bg-light">
+    <div class="container">
+      <%= link_to image_tag("logo.png"), root_path, class: "navbar-brand", 'data-turbolinks': false %>
+      <% if customer_signed_in? %>
+        <div class="ml-5">ようこそ！<%= current_customer.last_name %>さん</div>
+      <% end %>
+      <ul class="navbar-nav ml-auto navbar">
+        <% if admin_signed_in? %>
+         <li class="nav-item"><%= link_to "商品一覧", admin_items_path, class: "btn btn-light" %></li>
+         <li class="nav-item"><%= link_to "会員一覧", admin_customers_path, class: "btn btn-light" %></li>
+         <li class="nav-item"><%= link_to "注文履歴一覧", admin_orders_path, class: "btn btn-light" %></li>
+         <li class="nav-item"><%= link_to "ジャンル一覧", admin_genres_path, class: "btn btn-light" %></li>
+         <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, class: "btn btn-light", method: :delete %></li>
+        <% elsif customer_signed_in? %>
+         <li class="nav-item"><%= link_to "カート", public_cart_items_path, class: "btn btn-light" %></li>
+         <li class="nav-item"><%= link_to "商品一覧", public_items_path, class: "btn btn-light" %></li>
+         <li class="nav-item"><%= link_to "マイページ", public_customers_path, class: "btn btn-light" %></li>
+         <li class="nav-item"><%= link_to "ログアウト", destroy_customer_session_path, class: "btn btn-light", method: :delete %></li>
+        <% else %>
+         <li class="nav-item"><%= link_to "About", homes_about_path, class: "btn btn-light" %></li>
+         <li class="nav-item"><%= link_to "商品一覧", public_items_path, class: "btn btn-light" %></li>
+         <li class="nav-item"><%= link_to "新規登録", new_customer_registration_path, class: "btn btn-light", data: {"turbolinks" => false} %></li>
+         <li class="nav-item"><%= link_to "ログイン", new_customer_session_path, class: "btn btn-light", data: {"turbolinks" => false} %></li>
+        <% end %>
+      </ul>
+      <div class="form-inline my-2 my-lg-0">
+        <%= form_with url: search_path, method: :get, local: true do |f| %>
+          <%= f.text_field :value %>
+          <%= f.hidden_field :how, :value => "item" %>
+          <%= button_tag :type => "submit", :class =>"btn btn-default btn-s-md" do %>
+            <i class="fa fa-search"></i>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </nav>
+</header>

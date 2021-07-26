@@ -1,0 +1,41 @@
+<div class="container" style="margin: 2% auto;">
+  <h5 style="margin-bottom: 3%;"><strong style="background-color: #f5f5f5">会員情報編集</strong></h5>
+    <%= form_with model: @customer, url:'/public/customers', local:true do |f| %>
+      <div class="row customer-info-form">
+        <h5 class="col-md-3">氏名</h5>
+        <%= f.text_field :last_name, class:"col-md-3 last-name-form" %>
+        <%= f.text_field :first_name, class:"col-md-3" %>
+      </div>
+      <div class="row customer-info-form">
+        <h5 class="col-md-3">フリガナ</h5>
+        <%= f.text_field :last_name_kana, class:"col-md-3 last-name-form" %>
+        <%= f.text_field :first_name_kana, class:"col-md-3" %>
+      </div>
+      <div class="row customer-info-form">
+        <h5 class="col-md-3">郵便番号</h5>
+        <%= f.text_field :postal_code, class:"col-md-3" %>
+      </div>
+      <div class="row customer-info-form">
+        <h5 class="col-md-3">住所</h5>
+        <%= f.text_field :address, class:"col-md-9" %>
+      </div>
+      <div class="row customer-info-form">
+        <h5 class="col-md-3">電話番号</h5>
+        <%= f.text_field :phone_number, class:"col-md-3" %>
+      </div>
+      <div class="row customer-info-form">
+        <h5 class="col-md-3">メールアドレス</h5>
+        <%= f.text_field :email, class:"col-md-3" %>
+      </div>
+      <div class="row customer-info-form">
+        <div class="col-md-3"></div>
+        <%= button_tag :type => "submit", :class =>"btn btn-mod btn-border btn-medium btn-round faa-parent animated-hover mb-1" do %>
+          <i class="fa fa-save fa-fw faa-horizontal fa-2x" aria-hidden="true"></i>Edit Save
+        <% end %>
+        <div class="col-md-2"></div>
+        <%= link_to public_customers_unsubscribe_path, class: "btn mb-1" do %>
+          <i class="fas fa-sign-out-alt fa-2x"></i>Cancel Membership
+        <% end %>
+      </div>
+    <% end %>
+</div>

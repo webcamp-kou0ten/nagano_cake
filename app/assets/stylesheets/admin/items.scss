@@ -1,3 +1,15 @@
 // Place all the styles related to the admin/items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.add_item{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+ }
+ 
+ .add_genre{
+   position: absolute;
+   top: 10px;
+   left: 300px;
+ }
