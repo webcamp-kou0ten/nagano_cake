@@ -29,7 +29,7 @@
   display: block;
   background:#fff;
   opacity: 0.8;
-  padding:8px;
+  padding: 8px;
   width: 100%;
 }
 
@@ -56,14 +56,14 @@
 #main-visual {
   width: 1280px;
   height: 600px;
-  margin:0 auto;
-  position:relative;
+  margin: 0 auto;
+  position: relative;
 }
 
 #main-visual img {
-  position:absolute;
-  left:0;
-  top:0;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 header {
@@ -72,4 +72,14 @@ header {
 
 .font{
   margin: 5px 5px 0 5px;
+}
+
+/*thanksページの背景*/
+.thanks-visual{
+  height: 500px;
+  background-image: url(img/apple-pie-3723444_1920.jpg);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
 }
