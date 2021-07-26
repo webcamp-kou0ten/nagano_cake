@@ -3,7 +3,7 @@ class SearchesController < ApplicationController
   def search
     @value = params[:value]
     @how = params[:how]
-    @datas = search_for(@value, @how).page(params[:page])
+    @datas = search_for(@value, @how).where(sell_status: false).page(params[:page])
     @genres = Genre.all
     @genre = Genre.find(@value) if @how == "genre"
   end

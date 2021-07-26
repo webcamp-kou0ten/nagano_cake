@@ -3,6 +3,10 @@
 class Customers::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
   before_action :reject_customer, only: [:create]
+  
+  def after_sign_out_path_for(resource)
+    new_customer_session_path
+  end
 
   # GET /resource/sign_in
   # def new
