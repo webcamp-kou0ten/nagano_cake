@@ -49,7 +49,7 @@
             <td class="col-md-1"><%= order_items.amount %></td>
             <td class="col-md-2"><%= (items.price * order_items.amount).round(0) %></td>
             <%= form_with model: order_items, url: {controller: 'orders', action: 'production_status'}, method: :patch, local:true do |f| %>
-              <td class="col-md-3"><%= f.select :production_status, [["着手不可", 0], ["製作待ち", 1], ["製作中", 2], ["制作完了", 3]], selected: OrderItem.production_statuses[:"#{order_items.production_status}"] %></td>
+              <td class="col-md-3"><%= f.select :production_status, [["着手不可", 0], ["製作待ち", 1], ["製作中", 2], ["製作完了", 3]], selected: OrderItem.production_statuses[:"#{order_items.production_status}"] %></td>
               <%= f.hidden_field :id, :value => order_items.id %>
               <td class="col-md-1"><%= f.submit '更新' %></td>
             <% end %>
