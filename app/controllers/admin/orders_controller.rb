@@ -1,7 +1,13 @@
 class Admin::OrdersController < ApplicationController
 
   def index
-    @orders = Order.all.page(params[:page]).per(10).reverse_order
+    path = Rails.application.routes.recognize_path(request.referer)
+    if path[:controller] == "admin/customers" && path[:action] == "show"
+      customer = Customer.find(params[:customer_id])
+      @orders = Order.where(customer_id: customer.id).page(params[:page]).per(10).reverse_order
+    else
+      @orders = Order.all.page(params[:page]).per(10).reverse_order
+    end
   end
 
   def show
