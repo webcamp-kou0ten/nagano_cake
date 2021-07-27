@@ -33,7 +33,7 @@
         <tbody>
           <tr>
             <td class="customer-info col-6">商品合計</td>
-            <td><%= @order.price - 800 %></td>
+            <td><%= (@order.price - 800).to_s(:delimited) %></td>
           </tr>
           <tr>
             <td class="customer-info">配送料</td>
@@ -41,7 +41,7 @@
           </tr>
           <tr>
             <td class="customer-info font-weight-bold">ご請求額</td>
-            <td><%= @order.price %></td>
+            <td><%= (@order.price).to_s(:delimited) %></td>
           </tr>
         </tbody>
       </table>
@@ -60,10 +60,10 @@
         <tbody>
           <% @order.order_items.each do |order_item| %>
             <tr>
-              <td class="col-md-6"><%= order_item.item.name %></td>
-              <td class="col-md-2"><%= (order_item.item.price * 1.1).round %></td>
-              <td class="col-md-2"><%= order_item.amount %></td>
-              <td><%= (order_item.amount * order_item.item.price * 1.1).round %></td>
+              <td><%= order_item.item.name %></td>
+              <td><%= (order_item.item.price * 1.1).round.to_s(:delimited) %></td>
+              <td><%= order_item.amount %></td>
+              <td><%= (order_item.amount * order_item.item.price * 1.1).round.to_s(:delimited) %></td>
             </tr>
           <% end %>
         </tbody>

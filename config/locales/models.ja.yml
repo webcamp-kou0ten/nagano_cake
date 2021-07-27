@@ -4,19 +4,30 @@ ja:
       customer:
         email: メールアドレス
         password: パスワード
-        password_confirmation: 確認用パスワード
-        remember_me: 次回から自動的にログイン
-        # 効いていない
-        # Last name: 姓
-        # First name: 名
-        # Last name kana: セイ
-        # First name kana: メイ
-        # Address: 住所
-        # Postal code: 郵便番号
-        # Phone number: 電話番号
-        # Encrypted password: 確認用パスワード
+        last_name: （姓）
+        first_name: （名）
+        last_name_kana: （セイ）
+        first_name_kana: （メイ）
+        postal_code: 郵便番号
+        address: 住所
+        phone_number: 電話番号
+
       admin:
         email: メールアドレス
         password: パスワード
-        password_confirmation: 確認用パスワード
-        remember_me: 次回から自動的にログイン
+
+      cart_item:
+        amount: 個数
+
+      genre:
+        name: ジャンル名
+
+      item:
+        name: 商品名
+        introduction: 商品説明
+        price: 値段
+
+      shipping_address:
+        postal_code: 郵便番号
+        address: 住所
+        name: 宛名

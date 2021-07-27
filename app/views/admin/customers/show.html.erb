@@ -1,6 +1,6 @@
 <div class="container mt-5 mb-5">
   <div class="row">
-    <h5 class="p-2 bg-light"><%= "#{@customer.last_name}#{@customer.first_name}さんの会員詳細" %></h5>
+    <h5 class="p-2 bg-light"><%= "#{@customer.last_name} #{@customer.first_name}さんの会員詳細" %></h5>
     <div class="col-11">
       <table class="col-8">
         <tr><th style="width: 30%">会員ID</th><td><%= @customer.id %></td></tr>
@@ -20,7 +20,7 @@
         </tr>
       </table>
       <%= link_to '編集する', edit_admin_customer_path(@customer), class: "btn btn-sm btn-success m-3" %>
-      <%= link_to '注文履歴一覧を見る', admin_orders_path, class: "btn btn-sm btn-primary m-3" %>
+      <%= link_to '注文履歴一覧を見る', admin_orders_path(:customer_id => @customer.id), class: "btn btn-sm btn-primary m-3" %>
     </div>
   </div>
 </div>

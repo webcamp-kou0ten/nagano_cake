@@ -26,7 +26,7 @@
                 <div><%= order_item.item.name %></div>
               <% end %>
             </td>
-            <td class="col-1 text-right table-compact"><%= "#{order.price}円" %></td>
+            <td class="col-1 text-right table-compact"><%= "#{order.price.to_s(:delimited)}円" %></td>
             <td class="col-2 table-compact"><%= order.order_status %></td>
             <td class="table-compact">
               <%= link_to public_order_path(order), class: "btn btn-mod btn-border btn-medium btn-round faa-parent animated-hover mb-1" do %>
