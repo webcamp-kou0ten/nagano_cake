@@ -29,7 +29,7 @@ clone後、下記コマンドを実行ください。
 *$ bundle install
 *$ rails db:migrate
 
-##ER図
+## ER図
 ![ER図](https://user-images.githubusercontent.com/83518855/126987080-da1274ef-0655-4e0a-805b-da8f997633ea.png)
 
 ## Production
