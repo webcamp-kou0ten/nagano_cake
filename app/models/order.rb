@@ -17,9 +17,5 @@ class Order < ApplicationRecord
   VALID_POSTAL_CODE_REGEX = /^[0-9]{7}/
   validates :postal_code, format: { with: VALID_POSTAL_CODE_REGEX, :multiline => true }
 
-  # 未使用
-  def price_add_tax
-    self.order_items.item.price*1.1
-  end
 
 end
