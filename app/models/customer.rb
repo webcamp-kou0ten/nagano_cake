@@ -30,7 +30,7 @@ class Customer < ApplicationRecord
   VALID_NAME_KANA_REGEX = /[ァ-ヴ]/
   validates :last_name_kana, format: { with: VALID_NAME_KANA_REGEX, :multiline => true }
   validates :first_name_kana, format: { with: VALID_NAME_KANA_REGEX, :multiline => true }
-  VALID_ADDRESS_REGEX = /(...??[都道府県])(.+?郡.+?[町村]|.+?市.+?区|.+?[市区町村])(.+)/
+  VALID_ADDRESS_REGEX = /(.+?郡.+?[町村]|.+?市.+?区|.+?[市区町村])(.+)/
   validates :address, format: { with: VALID_ADDRESS_REGEX}
   VALID_POSTAL_CODE_REGEX = /^[0-9]{7}/
   validates :postal_code, format: { with: VALID_POSTAL_CODE_REGEX, :multiline => true }
