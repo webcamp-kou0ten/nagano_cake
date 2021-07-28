@@ -6,25 +6,26 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# ---------修正中----------
-# Admin.create!(
+
+# Admin.create(
 #   email: 'test@gmail.com',
 #   password: 'hogehoge'
 # )
 
-# 10.times do |n|
-#   Customer.create!(
-#     first_name: "太郎#{n}",
-#     last_name: "小太郎",
-#     first_name_kana: "タロウ",
-#     last_name_kana: "コタロウ",
-#     postal_code: "000000#{n}",
-#     address: "東京都豊島区#{n}",
-#     tel: "0801234567#{n}",
-#     email: "user#{n}@test.com",
-#     password: "testtest"
-#   )
-# end
+# ---------修正中----------
+9.times do |n|
+  Customer.create(
+    first_name: "太郎#{n}",
+    last_name: "小太郎",
+    first_name_kana: "タロウ",
+    last_name_kana: "コタロウ",
+    postal_code: "000000#{n}",
+    address: "東京都豊島区#{n}",
+    tel: "0801234567#{n}",
+    email: "user#{n}@test.com",
+    password: "testtest"
+  )
+end
 
 # Customer.all.each do |customer|
 #   rand(0..3).times do |n|

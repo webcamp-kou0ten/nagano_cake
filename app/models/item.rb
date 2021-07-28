@@ -10,7 +10,5 @@ class Item < ApplicationRecord
     validates :introduction
   end
 
-  # VALID_PRICE_CODE_REGEX = /^[0-9]{6}/
-  # validates :price, format: { with: VALID_PRICE_CODE_REGEX, :multiline => true }
 
 end
