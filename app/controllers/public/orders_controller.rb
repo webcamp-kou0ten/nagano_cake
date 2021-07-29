@@ -56,6 +56,11 @@ class Public::OrdersController < ApplicationController
     end
   end
 
+  # 非推奨：ビューからコントローラーのメソッドを呼び出す書き方
+  # def total_of_price(item)
+  #   (item.price * 1.1 ).round
+  # end
+
   private
 
     def address_params
@@ -65,5 +70,8 @@ class Public::OrdersController < ApplicationController
     def order_params
       params.require(:order).permit(:name, :postal_code, :payment_method, :address, :id, :shipping_cost, :price)
     end
+
+  # 59行目とセット
+  # helper_method :total_of_price
 
 end

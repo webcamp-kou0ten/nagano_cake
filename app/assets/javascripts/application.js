@@ -74,13 +74,13 @@ $(document).on('turbolinks:load', function() {
 
 // 郵便番号から住所出力
 
-$(function () {
-	$('#zip').jpostal({
-		postcode : [
-			'#zip'
-		],
-		address : {
-			'#address' : '%3%4%5'
-		}
-	});
+$(function() {
+  $('#zip').jpostal({
+    postcode : [
+      '#zip'
+    ],
+    address: {
+      "#address": "%3%4%5"
+    }
+  });
 });

@@ -3,8 +3,8 @@ class OrderItem < ApplicationRecord
   belongs_to :order
   belongs_to :item
 
-  def total_of_price
-    item.price * amount * 1.1
+  def total_of_price(tax_rate = 1.1)
+    (item.price * tax_rate).round
   end
 
 end
