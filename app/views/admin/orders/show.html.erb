@@ -42,12 +42,12 @@
         </tr>
       </thead>
       <tbody>
-          <% @items.zip(@order_items) do |items, order_item| %>
+          <% @items.zip(@order_items) do |item, order_item| %>
           <tr>
-            <td class="col-md-3"><%= items.name %></td>
-            <td class="col-md-2"><%= items.add_tax.to_s(:delimited) %></td>
+            <td class="col-md-3"><%= item.name %></td>
+            <td class="col-md-2"><%= item.add_tax.to_s(:delimited) %></td>
             <td class="col-md-1"><%= order_item.amount %></td>
-            <td class="col-md-2"><%= (items.add_tax * order_item.amount).to_s(:delimited) %></td>
+            <td class="col-md-2"><%= (item.add_tax * order_item.amount).to_s(:delimited) %></td>
             <%= form_with model: order_item, url: {controller: 'orders', action: 'production_status'}, method: :patch, local:true do |f| %>
               <td class="col-md-3"><%= f.select :production_status, [["着手不可", 0], ["製作待ち", 1], ["製作中", 2], ["製作完了", 3]], selected: OrderItem.production_statuses[:"#{order_item.production_status}"] %></td>
               <%= f.hidden_field :id, :value => order_item.id %>
