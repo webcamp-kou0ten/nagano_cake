@@ -23,12 +23,12 @@
        <tr>
          <td>郵便番号(ハイフンなし)</td>
          <td></td>
-         <td><%= f.text_field :postal_code, autofocus: true %></td>
+         <td><%= f.text_field :postal_code, autofocus: true, id: "zip", name: "zip" %></td>
        </tr>
        <tr>
          <td>住所</td>
          <td></td>
-         <td><%= f.text_field :address, autofocus: true, size: 48 %></td>
+         <td><%= f.text_field :address, autofocus: true, size: 48, id: "address", name: "address" %></td>
        </tr>
        <tr>
          <td>電話番号(ハイフンなし)</td>
@@ -50,7 +50,7 @@
          <td></td>
          <td><%= f.submit "新規登録" , class: "btn btn-success"%></td>
        </tr>
-      <% end %>  
+      <% end %>
       </table>
       <p class="mt-5"><span style="background-color:#fc9">既に登録済みの方</span></p>
       <p><%= link_to "こちら", new_customer_session_path %> からログインしてください。</p>
