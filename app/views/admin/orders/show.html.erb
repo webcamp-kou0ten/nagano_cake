@@ -4,7 +4,7 @@
     <tbody>
       <tr>
         <td>購入者</td>
-        <td><%= "#{@order.customer.last_name}#{@order.customer.first_name}" %></td>
+        <td><%= "#{@order.customer.last_name} #{@order.customer.first_name}" %></td>
       </tr>
       <tr>
         <td>注文日</td>
@@ -51,7 +51,7 @@
             <%= form_with model: order_items, url: {controller: 'orders', action: 'production_status'}, method: :patch, local:true do |f| %>
               <td class="col-md-3"><%= f.select :production_status, [["着手不可", 0], ["製作待ち", 1], ["製作中", 2], ["製作完了", 3]], selected: OrderItem.production_statuses[:"#{order_items.production_status}"] %></td>
               <%= f.hidden_field :id, :value => order_items.id %>
-              <td class="col-md-1"><%= f.submit '更新' %></td>
+              <td class="col-md-1"><%= f.submit '更新', 'data-turbolinks': false%></td>
             <% end %>
           </tr>
           <% end %>
