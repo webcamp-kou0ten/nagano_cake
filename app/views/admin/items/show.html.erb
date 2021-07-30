@@ -2,7 +2,7 @@
   <h2 class="mt-5">商品詳細</h2>
   <div class="row">
     <div class="col-lg-4">
-      <%= attachment_image_tag @item, :image, size: "250x250", fallback: "" %>
+      <%= attachment_image_tag @item, :image, size: "250x250", fallback: "", class: "img-fit" %>
     </div>
     <div class="col-lg-8">
       <table>
@@ -20,7 +20,7 @@
         </tr>
         <tr>
           <td>税込価格</br>(税抜価格)</td>
-          <td><%= (@item.price * 1.1).round %>(<%= @item.price %>)円</td>
+          <td><%= @item.add_tax.to_s(:delimited) %>(<%= @item.price.to_s(:delimited) %>)円</td>
         </tr>
         <tr>
           <td>販売ステータス</td>

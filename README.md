@@ -6,7 +6,7 @@
 Instagramからの顧客流入により管理が煩雑化。それを解消することを目的とする。
 
 ## Demo
-![Animation](https://user-images.githubusercontent.com/83518855/127079955-75640d09-913f-4e17-b03e-bb6cfee9e1a0.gif)
+![Animation-1](https://user-images.githubusercontent.com/83518855/127267784-4657410f-a30c-412f-99eb-7d571b1c46a7.gif)
 
 ## Requirement
 
@@ -25,9 +25,15 @@ autonumeric-rails
 ※詳細はGemfile
 
 ## Usage
-clone後、下記コマンドを実行ください。
+下記コマンドを実行することで使用できます。
 *$ bundle install
 *$ rails db:migrate
+*$ rails db:seed
+
+## 管理者ログイン
+path: /admins/sign_in
+email: test@gmail.com
+password: hogehoge
 
 ## ER図
 ![ER図](https://user-images.githubusercontent.com/83518855/126987080-da1274ef-0655-4e0a-805b-da8f997633ea.png)

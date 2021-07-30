@@ -6,12 +6,12 @@
     <div class="col-9">
       <div class="main row">
         <div class="image col-4">
-          <%= attachment_image_tag @item, :image, :fill, 200, 200, fallback: "" %>
+          <%= attachment_image_tag @item, :image, :fill, 200, 200, fallback: "", class: "img-fit" %>
         </div>
         <div class="about col-8">
           <h1><%= @item.name %></h1>
           <p><%= @item.introduction %></p>
-          <div class="mt-5">¥<%= "#{(@item.price * 1.1).round(0)}(税込)" %></div>
+          <div class="mt-5">¥<%= "#{@item.add_tax}(税込)" %></div>
           <% if customer_signed_in? %>
             <div class="row mt-5">
               <%= form_with model: @cart_items, url: public_cart_items_path, local: true do |f| %>

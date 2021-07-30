@@ -4,8 +4,8 @@ class CartItem < ApplicationRecord
 
   validates :amount, numericality: { in: 1..20 }
 
-  def sum_of_price
-    item.price * amount * 1.1
+  def sum_of_price(tax_rate = 1.1)
+    item.price * amount * tax_rate
   end
 
 end
