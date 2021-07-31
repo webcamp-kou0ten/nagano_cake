@@ -26,9 +26,9 @@ autonumeric-rails
 
 ## Usage
 下記コマンドを実行することで使用できます。
-*$ bundle install
-*$ rails db:migrate
-*$ rails db:seed
+* $ bundle install
+* $ rails db:migrate
+* $ rails db:seed
 
 ## 管理者ログイン
 path: /admins/sign_in
