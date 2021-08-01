@@ -25,7 +25,7 @@
                 <%= attachment_image_tag item, :image, :fill, 200, 200, fallback: "", class: "img-fluid float1" %>
               <% end %>
               <p><%= link_to item.name, public_item_path(item), class: "text-dark" %></p>
-              <p>¥<%= item.price %></p>
+              <p>¥<%= item.add_tax.to_s(:delimited) %></p>
             </div>
             <% end %>
           </div>
